@@ -19,38 +19,33 @@ const Status = Object.freeze(
     });
 
 const eventSchema = mongoose.Schema({
-    user:[{
-        type: ObjectId,
-        ref: "User",
-        unique:true,
-    }],
-    name:[{
+    name:{
         type: String,
         required:true,
         trim:true,
         maxlength:50,
-    }],
-    registration:[{
+    },
+    registration:{
         type: Date,
         required : true,
-    }],
-    registrationEnd:[{
+    },
+    registrationEnd:{
         type: Date,
         required : true,
-    }],
-    banner :[{
+    },
+    banner :{
         type: String,
         required :true,
-    }],
-    description :[{
+    },
+    description :{
         type : String,
         required :true,
         default : "Event Conducted by CSI DYPIEMR",
         maxlength: 1000,
-    }],
-    formlink: [{
+    },
+    formlink: {
         type : String,
-    }],
+    },
     photo : [photoschema],
     status:{
         type: String,
@@ -65,4 +60,4 @@ Object.assign(eventSchema.statics, {
 
 const Event = mongoose.model('Events', eventSchema);
 
-module.exports = Events;
+module.exports = Event;
